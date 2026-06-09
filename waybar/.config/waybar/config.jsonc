@@ -13,11 +13,18 @@
     "cpu",
     "memory",
     "network",
+    "custom/homelab-vpn",
     "battery",
     "pulseaudio",
     "custom/notification",
     "custom/power",
   ],
+  "custom/homelab-vpn": {
+    "return-type": "json",
+    "interval": 5,
+    "exec": "bash -lc 'if systemctl is-active --quiet wg-quick@homelab.service; then echo \"{\\\"text\\\":\\\"\\\",\\\"tooltip\\\":\\\"homelab: connected\\\",\\\"class\\\":\\\"on\\\"}\"; else echo \"{\\\"text\\\":\\\"\\\",\\\"tooltip\\\":\\\"homelab: disconnected\\\",\\\"class\\\":\\\"off\\\"}\"; fi'",
+    "on-click": "bash -lc 'if systemctl is-active --quiet wg-quick@homelab.service; then systemctl stop wg-quick@homelab.service; else systemctl start wg-quick@homelab.service; fi'",
+  },
 "battery": {
     "interval": 60,
     "states": {
