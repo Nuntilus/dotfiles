@@ -55,6 +55,7 @@ map("n", "<leader>bn", "<cmd>bnext<CR>", { desc = "Next Buffer" })
 map("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next Buffer" })
 map("n", "<leader>bp", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })
 map("n", "<S-tab>", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })
+
 -- Harpoon
 local harpoon_mark = require("harpoon.mark")
 local harpoon_ui = require("harpoon.ui")
@@ -65,14 +66,11 @@ map("n", "<leader>hp", harpoon_ui.nav_prev, { desc = "Go to previous Harpoon fil
 
 -- Terminal
 map("n", "<leader>t", "<cmd>ToggleTerm direction=horizontal size=10<CR>", { desc = "Toggle bottom terminal" })
-map("t", "<C-l>", [[<Cmd>ToggleTermToggleAll<CR>]], { desc = "Clear terminal" })
-
--- Terminal navigation (escape terminal mode)
 map("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
-map("t", "<C-h>", [[<Cmd>wincmd h<CR>]], { desc = "Move left" })
-map("t", "<C-j>", [[<Cmd>wincmd j<CR>]], { desc = "Move down" })
-map("t", "<C-k>", [[<Cmd>wincmd k<CR>]], { desc = "Move up" })
-map("t", "<C-l>", [[<Cmd>wincmd l<CR>]], { desc = "Move right" })
+map("t", "<C-l>", function()
+  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("clear<CR>", true, false, true), "t", false)
+end, { desc = "Clear terminal" })
+
 -- =====================================================
 -- WHICH-KEY GROUPS (Shows categories when you press <leader>)
 -- =====================================================
