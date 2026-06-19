@@ -13,3 +13,6 @@ vim.opt.undodir = vim.fn.stdpath("data") .. "/undo"
 
 -- Set ctlr-v to visual block mode 
 vim.keymap.set("n", "<C-v>", "<C-v>", {noremap = true, silent = true})
+
+-- Set spell checking for English (US)
+vim.cmd("setlocal spell spelllang=en_us")

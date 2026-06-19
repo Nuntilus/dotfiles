@@ -1,10 +1,11 @@
 local map = vim.keymap.set -- Alias for easier keymap setting
 
 -- General keymaps
-map("n", ",", "@@", { desc = "Repeat last macro" }) -- Press , to repeat the last macro
-map({"n","i","v"}, "<C-s>", "<cmd>w<CR>", { desc = "Save file" }) -- Ctrl + s to save in normal, insert, and visual modes
+map("n", ",", "@@", { desc = "Repeat last macro" })                     -- Press , to repeat the last macro
+map({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Save file" })   -- Ctrl + s to save in normal, insert, and visual modes
 map("n", "<leader>ww", ":set wrap!<CR>", { desc = "Toggle line wrap" }) -- Toggle line wrapping
-
+-- Makros
+map("n", "<leader>-", "_wi~~A~~", { desc = "Run macro in register q" }) -- Run macro in register q
 -- Window navigation with Ctrl + hjkl
 map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
@@ -12,7 +13,7 @@ map("n", "<C-k>", "<C-w>k", { desc = "Move to window above" })
 map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
 -- Lsp keymaps
-map("n", "K", vim.lsp.buf.hover, { desc = "Lsp hover" })
+map("n", "K", require("spell").suggest, { desc = "Hover / Spell suggest" })
 map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Show code actions" })
 map("n", "rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
@@ -78,17 +79,17 @@ end, { desc = "Clear terminal" })
 local wk = require("which-key")
 
 wk.add({
-	-- Main category groups
-	{ "<leader>d", group = " Debug" },
-	{ "<leader>g", group = " Git" },
-	{ "<leader>f", group = " Find" },
-	{ "<leader>c", group = " Code" },
-	{ "<leader>b", group = " Buffer" },
-	{ "<leader>h", group = " Harpoon" },
-	{ "<leader>t", group = " Terminal" },
+  -- Main category groups
+  { "<leader>d", group = " Debug" },
+  { "<leader>g", group = " Git" },
+  { "<leader>f", group = " Find" },
+  { "<leader>c", group = " Code" },
+  { "<leader>b", group = " Buffer" },
+  { "<leader>h", group = " Harpoon" },
+  { "<leader>t", group = " Terminal" },
 })
 
 -- Optional: Add a group for Telescope find operations
 wk.add({
-	{ "<leader><leader>", desc = "Find files" },
+  { "<leader><leader>", desc = "Find files" },
 })
