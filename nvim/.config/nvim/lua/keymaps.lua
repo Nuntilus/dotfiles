@@ -59,14 +59,6 @@ map("n", "<Tab>", "<cmd>bnext<CR>", { desc = "Next Buffer" })
 map("n", "<leader>bp", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })
 map("n", "<S-tab>", "<cmd>bprevious<CR>", { desc = "Previous Buffer" })
 
--- Harpoon
-local harpoon_mark = require("harpoon.mark")
-local harpoon_ui = require("harpoon.ui")
-map("n", "<leader>hs", harpoon_ui.toggle_quick_menu, { desc = "Toggle Harpoon menu" })
-map("n", "<leader>ha", harpoon_mark.add_file, { desc = "Add file to Harpoon" })
-map("n", "<leader>hn", harpoon_ui.nav_next, { desc = "Go to next Harpoon file" })
-map("n", "<leader>hp", harpoon_ui.nav_prev, { desc = "Go to previous Harpoon file" })
-
 -- Terminal
 map("n", "<leader>t", "<cmd>ToggleTerm direction=horizontal size=10<CR>", { desc = "Toggle bottom terminal" })
 map("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
