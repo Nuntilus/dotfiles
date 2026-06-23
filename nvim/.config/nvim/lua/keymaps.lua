@@ -5,7 +5,9 @@ map("n", ",", "@@", { desc = "Repeat last macro" })                     -- Press
 map({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Save file" })   -- Ctrl + s to save in normal, insert, and visual modes
 map("n", "<leader>ww", ":set wrap!<CR>", { desc = "Toggle line wrap" }) -- Toggle line wrapping
 -- Makros
-map("n", "<leader>-", "_wi~~A~~", { desc = "Run macro in register q" }) -- Run macro in register q
+map("v", "<leader>-", "c~~pa~~") -- Run macro in register q
+map("n", "<leader>a", "ggVG" ) -- Select all text
+
 -- Window navigation with Ctrl + hjkl
 map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
