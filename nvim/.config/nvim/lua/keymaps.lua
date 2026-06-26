@@ -8,28 +8,13 @@ map("n", "<leader>ww", ":set wrap!<CR>", { desc = "Toggle line wrap" }) -- Toggl
 map("v", "<leader>-", "c~~pa~~") -- Run macro in register q
 map("n", "<leader>a", "ggVG" ) -- Select all text
 
--- Window navigation with Ctrl + hjkl
-map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
-map("n", "<C-j>", "<C-w>j", { desc = "Move to window below" })
-map("n", "<C-k>", "<C-w>k", { desc = "Move to window above" })
-map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
+-- Window navigation is handled by vim-tmux-navigator on <C-h/j/k/l>
 
 -- Lsp keymaps
 map("n", "K", require("spell").suggest, { desc = "Hover / Spell suggest" })
 map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Show code actions" })
 map("n", "rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
-
--- Debugger
-local dap = require("dap")
-local dapui = require("dapui")
-
-map("n", "<leader>db", dap.toggle_breakpoint, { desc = "Set break point" })
-map("n", "<leader>dc", dap.continue, { desc = "Dap continue" })
-map("n", "<leader>dso", dap.step_over, { desc = "Dap step over" })
-map("n", "<leader>dsi", dap.step_into, { desc = "Dap step into" })
-map("n", "<leader>dsr", dap.step_out, { desc = "Dap step out" })
-map("n", "<leader>dr", dap.repl.open, { desc = "Dap open repl" })
 
 -- Filetree
 map("n", "<leader>e", ":Neotree filesystem toggle left <cr>", { desc = "Toggle file tree" })
