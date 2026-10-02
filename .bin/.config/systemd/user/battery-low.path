@@ -1,0 +1,9 @@
+[Unit]
+Description=Monitor battery level
+
+[Path]
+PathChanged=/sys/class/power_supply/BAT0/capacity
+Unit=battery-low.service
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+TryExec=windows
+Exec=windows
+Icon=windows
+Terminal=false
+Categories=System;
+
+Name=Windows
+GenericName=Windows
+Comment=Windows docker container
+StartupNotify=true

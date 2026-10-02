@@ -59,6 +59,7 @@ map("n", "<leader>fa", function()
 end, { desc = "Find all files (hidden + gitignored)" })
 map("n", "<leader>fg", telescope.live_grep, { desc = "Live grep" })
 map("n", "<leader>fk", telescope.keymaps, { desc = "Search keymaps" })
+map("n", "<leader>fb", telescope.buffers, { desc = "Search buffers" })
 
 -- Lazygit
 map("n", "<leader>gg", ":LazyGit <CR>", { desc = "Lazygit" })

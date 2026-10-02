@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+mapfile -t orphans < <(paru -Qtdq 2>/dev/null || true)
+
+if ((${#orphans[@]} == 0)); then
+    echo "No orphaned packages found."
+else
+    paru -Rns -- "${orphans[@]}"
+fi

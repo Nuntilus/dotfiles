@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+docker start windows
+firefox --new-window http://localhost:8006

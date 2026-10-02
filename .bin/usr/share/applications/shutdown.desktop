@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+TryExec=/usr/bin/shutdown
+Exec=/usr/bin/shutdown now
+Icon=shutdown
+Terminal=false
+
+Name=Shutdown
+GenericName=Shutdown
+Categories=System;Utility;
