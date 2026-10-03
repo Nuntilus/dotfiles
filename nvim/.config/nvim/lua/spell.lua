@@ -5,8 +5,12 @@ local IGNORE_LABEL = "── Ignore word (add to dictionary) ──"
 function M.suggest()
   local word = vim.fn.spellbadword()[1]
   if not vim.wo.spell or word == "" then
-    vim.lsp.buf.hover()
+    vim.notify("No misspelled word here", vim.log.levels.INFO)
     return
+  end
+
+  if vim.fn.expand("<cword>") ~= word then
+    vim.fn.search("\\V\\<" .. vim.fn.escape(word, "\\") .. "\\>", "cW")
   end
 
   local suggestions = vim.fn.spellsuggest(word, 10)

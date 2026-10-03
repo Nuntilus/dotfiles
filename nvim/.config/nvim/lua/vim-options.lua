@@ -15,9 +15,8 @@ vim.opt.undodir = vim.fn.stdpath("data") .. "/undo"
 vim.keymap.set("n", "<C-v>", "<C-v>", {noremap = true, silent = true})
 
 -- Set spell checking for English (US)
-vim.cmd("setlocal spell spelllang=en_us")
-vim.cmd("set spell")
-
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = true
 -- Yank highlights
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking text",

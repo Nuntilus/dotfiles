@@ -17,7 +17,7 @@ map("n", "<M-k>", "<cmd>cprev<CR>", { desc = "Previous quickfix item" })
 -- Window navigation is handled by vim-tmux-navigator on <C-h/j/k/l>
 
 -- Lsp keymaps
-map("n", "K", require("spell").suggest, { desc = "Hover / Spell suggest" })
+map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Show code actions" })
 map("n", "rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
@@ -27,6 +27,11 @@ map("n", "<leader>dm", function() vim.diagnostic.jump({ count = -1, float = true
 map("n", "<leader>dl", function()
   vim.diagnostic.setloclist()
 end, { desc = "List diagnostics in file" })
+
+-- Spelling (z-family)
+map("n", "z=", require("spell").suggest, { desc = "Spell suggest (floating)" })
+map("n", "zn", "]s", { desc = "Next misspelled word" })
+map("n", "zb", "[s", { desc = "Previous misspelled word" })
 
 -- Filetree
 map("n", "<leader>e", ":Neotree filesystem toggle left <cr>", { desc = "Toggle file tree" })
