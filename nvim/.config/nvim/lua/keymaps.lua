@@ -36,22 +36,6 @@ map("n", "zb", "[s", { desc = "Previous misspelled word" })
 -- Filetree
 map("n", "<leader>e", ":Neotree filesystem toggle left <cr>", { desc = "Toggle file tree" })
 
--- Debugger (nvim-dap / nvim-dap-ui)
-local dap = require("dap")
-local dapui = require("dapui")
-
-map("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
-map("n", "<leader>dB", function()
-  dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
-end, { desc = "Conditional Breakpoint" })
-map("n", "<leader>dc", dap.continue, { desc = "Continue / Start" })
-map("n", "<leader>di", dap.step_into, { desc = "Step Into" })
-map("n", "<leader>do", dap.step_over, { desc = "Step Over" })
-map("n", "<leader>dO", dap.step_out, { desc = "Step Out" })
-map("n", "<leader>dr", dap.repl.toggle, { desc = "Toggle REPL" })
-map("n", "<leader>dq", dap.terminate, { desc = "Terminate" })
-map("n", "<leader>du", dapui.toggle, { desc = "Toggle DAP UI" })
-
 -- Formatter
 map("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format document" })
 
@@ -89,7 +73,7 @@ local wk = require("which-key")
 
 wk.add({
   -- Main category groups
-  { "<leader>d", group = " Debug / Diagnostics" },
+  { "<leader>d", group = " Diagnostics" },
   { "<leader>g", group = " Git" },
   { "<leader>f", group = " Find" },
   { "<leader>c", group = " Code" },
