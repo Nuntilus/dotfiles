@@ -20,14 +20,9 @@ return {
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			vim.lsp.config("rust_analyzer", {
+			vim.lsp.config("*", {
 				capabilities = capabilities,
 			})
-
-			vim.lsp.enable("rust_analyzer")
-
-			vim.lsp.config = vim.lsp.config or {}
-			vim.lsp.config.capabilities = capabilities
 
 			vim.diagnostic.config({
 				virtual_text = {
