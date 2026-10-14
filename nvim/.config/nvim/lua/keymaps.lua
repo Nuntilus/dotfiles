@@ -1,7 +1,6 @@
 local map = vim.keymap.set -- Alias for easier keymap setting
 
 -- General keymaps
-map("n", ",", "@@", { desc = "Repeat last macro" })                     -- Press , to repeat the last macro
 map({ "n", "i", "v" }, "<C-s>", "<cmd>w<CR>", { desc = "Save file" })   -- Ctrl + s to save in normal, insert, and visual modes
 map("n", "<leader>ww", ":set wrap!<CR>", { desc = "Toggle line wrap" }) -- Toggle line wrapping
 map({"v", "n"}, "<leader>p", "\"_dP", { desc = "Paste without overwriting register" }) -- Paste in visual mode without overwriting the default register
@@ -30,8 +29,9 @@ end, { desc = "List diagnostics in file" })
 
 -- Spelling (z-family)
 map("n", "z=", require("spell").suggest, { desc = "Spell suggest (floating)" })
-map("n", "zn", "]s", { desc = "Next misspelled word" })
-map("n", "zb", "[s", { desc = "Previous misspelled word" })
+map("n", "zn", require("spell").next, { desc = "Next misspelled word" })
+map("n", "zb", require("spell").prev, { desc = "Previous misspelled word" })
+map("n", "zl", require("spell").list, { desc = "List spelling issues (quickfix)" })
 
 -- Filetree
 map("n", "<leader>e", ":Neotree filesystem toggle left <cr>", { desc = "Toggle file tree" })
