@@ -106,5 +106,13 @@ stow_configs
 systemctl --user daemon-reload
 systemctl --user enable --now pipewire pipewire-pulse wireplumber
 systemctl --user enable --now battery-low.path battery-low.timer
+
+echo "Uninstalling Kitty"
 paru -Rns kitty
+
+echo "Installing Tpm"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+echo "Installing Oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 notify-send "Setup finished" --urgency=critical

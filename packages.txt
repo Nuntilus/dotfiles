@@ -31,3 +31,6 @@ wofi-emoji
 yazi
 zen-browser-bin
 zsh
+git
+tree-sitter-cli
+bibata-cursor-theme
