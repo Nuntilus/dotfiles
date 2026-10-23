@@ -34,3 +34,4 @@ zsh
 git
 tree-sitter-cli
 bibata-cursor-theme
+lazygit
